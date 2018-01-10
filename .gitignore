@@ -4,13 +4,6 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-uba.config.js
-uba.mock.js
-src/index.html
-
-uba.config.js
-src/index.html
-
 
 # Runtime data
 pids
@@ -60,23 +53,9 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-package-lock.json
-yarn.lock
 
 # dotenv environment variables file
 .env
-
 dist
 
-# For WebStorm
-/.idea/
-
-/src/server/node_modules
-
-# For VScode
-/.vscode/
-
-.project
-mock/creditlist.json
-uba.mock.js
-uba.config.js
+.idea

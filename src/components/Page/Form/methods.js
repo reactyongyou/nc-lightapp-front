@@ -5,31 +5,35 @@ export function getAllFormValue() {
 }
 
 // 获取表单中某个字段的值
-export function getFormValue(id) {
+export function getFormValue(moduleId, itemId) {
+	this.state.form[moduleId][key] = this.state.form[moduleId][key] || {};
 	let { state } = this;
-	return state.form[id].value;
+	return state.form[moduleId][itemId].value;
 }
 
 // 设置表单中某个字段的值
-export function setFormValue(values) {
+export function setFormValue(moduleId, values) {
 	for (let key of Object.keys(values)) {
 		if (key) {
-			this.state.form[key].value = values[key];
+			this.state.form[moduleId][key] = this.state.form[moduleId][key] || {};
+			this.state.form[moduleId][key].value = values[key];
 		}
 	}
 	this.setState({ form: this.state.form });
 }
 
 // 获取表单编辑性
-export function getFormDisabled(id) {
-	return this.state.form[id].disabled;
+export function getFormDisabled(moduleId, id) {
+	this.state.form[moduleId][key] = this.state.form[moduleId][key] || {};
+	return !!this.state.form[moduleId][id].disabled;
 }
 
 // 设置表单编辑性
-export function setFormDisabled(values) {
+export function setFormDisabled(moduleId, values) {
 	for (let key of Object.keys(values)) {
 		if (key) {
-			this.state.form[key].disabled = values[key];
+			this.state.form[moduleId][key] = this.state.form[moduleId][key] || {};
+			this.state.form[moduleId][key].disabled = values[key];
 		}
 	}
 	this.setState({ form: this.state.form });

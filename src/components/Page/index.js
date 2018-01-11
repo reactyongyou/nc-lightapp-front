@@ -12,13 +12,15 @@ import {
 } from './Form';
 import { createButton, setButtonDisabled, getButtonDisabled } from './Button';
 
-export default ({ onAfterEvent, onButtonClick }) => (App) => {
+export default ({ moduleId, onAfterEvent, onButtonClick }) => (App) => {
 	class Form extends Component {
 		constructor(props) {
 			super(props);
 			this.state = {
+				meta: {},
 				form: {},
-				button: {}
+				button: {},
+				table: {}
 			};
 			this.onAfterEvent = onAfterEvent;
 			this.onButtonClick = onButtonClick;
@@ -39,6 +41,46 @@ export default ({ onAfterEvent, onButtonClick }) => (App) => {
 				getDisabled: getButtonDisabled.bind(this)
 			};
 			this.table = {};
+
+			//模拟ajax请求，通过moduleId查询meta信息
+			setTimeout(() => {
+				this.setState({
+					meta: {
+						form1: [
+							{
+								label: '用户名',
+								id: 'userName',
+								config: {
+									initialValue: 'lyx',
+									disabled: true
+								},
+								type: 'input',
+								inputType: 'text'
+							},
+							{
+								label: '密码',
+								id: 'passWord',
+								type: 'input',
+								inputType: 'password'
+							}
+						],
+						form2: [
+							{
+								label: '邮箱',
+								id: 'email',
+								type: 'input',
+								inputType: 'text'
+							},
+							{
+								label: '手机',
+								id: 'teliphone',
+								type: 'input',
+								inputType: 'text'
+							}
+						]
+					}
+				});
+			}, 100);
 		}
 
 		render() {

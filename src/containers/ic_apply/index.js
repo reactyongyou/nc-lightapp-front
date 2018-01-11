@@ -6,39 +6,14 @@ class IcApply extends Component {
 	// react：构造函数
 	constructor(props) {
 		super(props);
-		//表单meta信息
-		this.meta1 = [
-			{
-				label: '用户名',
-				id: 'userName',
-				config: {
-					initialValue: 'lyx',
-					disabled: true
-				},
-				type: 'input',
-				inputType: 'text'
-			},
-			{
-				label: '密码',
-				id: 'passWord',
-				type: 'input',
-				inputType: 'password'
-			}
-		];
-		this.meta2 = [
-			{
-				label: '邮箱',
-				id: 'email',
-				type: 'input',
-				inputType: 'text'
-			},
-			{
-				label: '手机',
-				id: 'teliphone',
-				type: 'input',
-				inputType: 'text'
-			}
-		];
+	}
+
+	// react: 生命周期，可做初始化操作，相当于init
+	componentDidMount() {
+		this.props.form.setValue('form1', {
+			userName: 'liyxt@yonyou.com',
+			passWord: 'yonyou.com@1988'
+		});
 	}
 
 	// react：界面渲染函数
@@ -50,10 +25,10 @@ class IcApply extends Component {
 			<div>
 				{/* 创建表单 */}
 				<div style={{ border: '1px solid #666', padding: '20px', marginBottom: '20px', marginTop: '20px' }}>
-					{createForm(this.meta1)}
+					{createForm('form1')}
 				</div>
 				<div style={{ border: '1px solid #666', padding: '20px', marginBottom: '20px' }}>
-					{createForm(this.meta2)}
+					{createForm('form2')}
 				</div>
 				{/* 创建按钮 */}
 				{createButton('setValueButton', { name: '设值' })}
@@ -66,6 +41,8 @@ class IcApply extends Component {
 }
 
 export default createPage({
+	//模板id
+	moduleId: '100', //或者 [ '001', '002', '003' ]
 	// 编辑后事件
 	onAfterEvent: afterEvent,
 	// 按钮点击事件

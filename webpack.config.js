@@ -5,13 +5,29 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	cache: false,
 	entry: {
-		index: './src/components/index'
+		index: './src/index'
 	},
 	output: {
 		path: path.join(process.cwd(), './build'),
 		filename: 'liyxt-test.js',
 		library: 'liyxt-test',
 		libraryTarget: 'umd'
+	},
+	externals: {
+		react: {
+			root: 'React',
+			var: 'React',
+			commonjs: 'react',
+			commonjs2: 'react',
+			amd: 'react'
+		},
+		'react-dom': {
+			root: 'ReactDOM',
+			var: 'ReactDOM',
+			commonjs: 'react-dom',
+			commonjs2: 'react-dom',
+			amd: 'react-dom'
+		}
 	},
 	module: {
 		rules: [
@@ -64,21 +80,5 @@ module.exports = {
 				]
 			}
 		]
-	},
-	externals: {
-		react: {
-			root: 'React',
-			var: 'React',
-			commonjs: 'react',
-			commonjs2: 'react',
-			amd: 'react'
-		},
-		'react-dom': {
-			root: 'ReactDOM',
-			var: 'ReactDOM',
-			commonjs: 'react-dom',
-			commonjs2: 'react-dom',
-			amd: 'react-dom'
-		}
 	}
 };

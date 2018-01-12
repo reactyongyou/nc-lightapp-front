@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import route from './route';
-import './index.css';
+import createPage from './Page';
 
-ReactDOM.render(route, document.querySelector('#app'));
+export { createPage };

@@ -9,8 +9,8 @@ module.exports = {
 	},
 	output: {
 		path: path.join(process.cwd(), './build'),
-		filename: 'liyxt-test.js',
-		library: 'liyxt-test',
+		filename: 'index.js',
+		library: 'nc-lightapp-front',
 		libraryTarget: 'umd'
 	},
 	externals: {

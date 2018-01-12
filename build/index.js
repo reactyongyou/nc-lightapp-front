@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
 	else if(typeof exports === 'object')
-		exports["liyxt-test"] = factory(require("react"));
+		exports["nc-lightapp-front"] = factory(require("react"));
 	else
-		root["liyxt-test"] = factory(root["React"]);
+		root["nc-lightapp-front"] = factory(root["React"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_0__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache

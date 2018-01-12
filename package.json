@@ -1,12 +1,8 @@
 {
 	"name": "liyxt-test",
-	"version": "1.0.0",
-	"description": "uba boilerplate react spa",
-	"main": "src/text/index.js",
-	"scripts": {
-		"dev": "uba server",
-		"build": "uba build"
-	},
+	"version": "1.0.1",
+	"description": "liyxt test nc-lightapp-front",
+	"main": "build/liyxt-test.js",
 	"author": "liyxt@yonyou.com",
 	"license": "MIT",
 	"devDependencies": {
